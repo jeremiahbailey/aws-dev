@@ -37,6 +37,7 @@ func main() {
 
 // Because there are only 7 valid signatures for a Lambda handler Golang func, we use
 // a pointer receiver function to pass in the client and query parameters (e.g. the dependencies).
+// This is critical to enable passing our mock object when running unit tests.
 func (q *s3Query) handleLambdaEvent(ctx context.Context) (*s3.ListBucketsOutput, error) {
 
 	resp, err := q.s3.ListBuckets(q.params)
