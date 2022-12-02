@@ -18,6 +18,8 @@ type mockedS3ListResponse struct {
 
 // This method implements the signature of ListBuckets as defined in the s3iface package.
 // This satisfies the s3API interface defined in mockedS3ListResponse.
+// https://docs.aws.amazon.com/sdk-for-go/api/service/s3/s3iface/ details the method signature
+// required to satisfy the S3API interface.
 func (m mockedS3ListResponse) ListBuckets(*s3.ListBucketsInput) (*s3.ListBucketsOutput, error) {
 	return &m.Resp, nil
 }
